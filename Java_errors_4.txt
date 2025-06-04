@@ -1,0 +1,56 @@
+PART-4- ERRORS:
+ 
+TYPES OF ERRORS -
+3 types of errors can occur in a program: compile-time errors, run time errors and logical errors.
+- Compile-time errors occurs when you violate the syntax rule of Java. Eg: parenthesis and braces have to come in
+matching pairs. so "(1+2)" --> is legal but "8)" --> isn't. In thelatter case, the program can't be compiled, and 
+compiler displays an error.
+- Error messages in copmiler usually indicate where in the program the error occured, and sometime they can tell 
+you exactly what the error is. But error messages are not always easy to understand. Sometimes the compiler reports
+the place in the program where the error was detected, not where it actually occured. And sometime the description 
+of the problem is  more confusing than helpful.
+for eg, if you leave out the closing brace at the end of main, you might get a message like this :
+for code -
+                public class Hello{                                     line 1
+                                                                        line 2
+                        public static void main(String[] args){         line 3         
+                                // generate some simple output.         line 4
+                                System.out.println("Hello World!");     line 5
+                        }                                               line 6
+                }                                                       line 7
+
+                File: Hello.java [line: 7]
+                Error: reached end of file while parsing
+There are 2 problems here. First, the error message is written from the comiler's point if view, not yours. Parsing
+is the process of reading a program before translating; if compiler gets to the end of the file while still parsing,
+it means something was omitted. But the compiler doen't knows what. It also doesn't know where. The compiler 
+discovers the error at the end of program (line 7), but the missing brace should be on the previous line.
+
+******* 
+Parsing refers to the process of analyzing source code before translating into machine code or byte code. Its a 
+crucial step in compiler or interpretor, where the source code is read and structured into meaningful 
+representation.  Process of parsing is as follows - 
+1) lexical analysis or tokenizations - source code is broken into tokens (keywords, identifiers, etc)
+2) Syntax analysis or parsing - tokens are checked against the grammar rules of language. This step forms a parse 
+   tree or an Abstract Syntax tree(AST)
+3) Semantic analysis - ensures correct meaning (eg: type checking, variable declarartion verifications)
+4) Code generation and optimization - Converts AST into an intermediate or machine code.
+*******
+
+- The 2nd type of error is a run-time error, so-called because it doesn't appear until after the program has 
+started running. In Java, these errors occur while the interpreter is executing byte code and something goes wrong.
+These errors are also called "exceptions" because they usually indicate that something exceptional (and bad) has 
+happened. 
+for eg: if you accidentally divide by zero you will get message:
+        -> exception in thread "main" java.lang.ArithmeticException: / by zero at Hello.main(Hello.java:5)
+some part of this output are useful for debugging. The first line includes name of the exception, 
+java.lang.ArithmeticException, and a message that indicates more specifically what happened, / by zero. The next 
+line shows the method where the error occured: Hello.main indicates the method main in the class Hello. It also 
+reports the file where the method is defined, Hello.java, and the line number where the error occured. 5.
+- Always keep in mind that line where the program crashes may not be the line that needs to be corrected.
+
+- The 3rd type of error is the logical error. If your program has logic error, it will compile and run without 
+generating error messages, but it will not give the output as we wanted instead it will give correct output based
+on the logic written. 
+
+*(appendix -c read from o'rilleys for debugging techniques)
