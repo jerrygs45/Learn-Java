@@ -1,0 +1,136 @@
+PART-5-INPUT AND OUTPUT:
+
+THE SYSTEM CLASS- 
+We have been using  System.out.println for a while now, but what does it mean?. System is a class that provides methods 
+related to "system" or environment where programs run. It also provides System.out, which is a special value that provides 
+methods for displaying output, including println. In fact we can use System.out.println to display value of System.out :
+    --> System.out.println(System.out);  // output - java.io.PrintStream@7ad041f3
+    This output indicates that System.out is a PrintStream, which is defined in a package called java.io. 
+A package is a collection of related classes; java.io contains classes for "I/O" which stands for input and output. The number 
+and letters after the @ sign are the addresses of System.out, represented as a hexadecimal number. The address of a value is 
+its location in the computer memory, which might be different on different computers.
+
+System is defined in a file called System.java, and PrintStream is defined in PrintStream.java. These files are a part of the
+java library, which is an extensive collection of classes you can use in your programs.
+    -> System.out.println refers to the out variable of the system class, which is a PrintStream that provides a method called
+    println
+--------------------------------------------------------------------------------------------------------------------------------------
+THE SCANNER CLASS-
+The System class also provides the special value in System.in, which is an InputStream that provides methods for reading input
+from the keyboard. These methods are not easy to use; fortunately, java provides other classes that make it easier to handle 
+common input tasks.
+Scanner is a class that provides methods for inputting words, numbers, and other data. Scanner is provided by java.util, which 
+is a package that contains classes so useful they are called "utility classes". You can import scanner like:
+    import java.util.Scanner;
+This import statement tells the compiler that when you say Scanner, you mean the one defined in java.util. It's necessary 
+because there might be another class named Scanner in another package. Using an import statement makes your code unambiguous.
+Import statements can't be inside a class definition. By convention, they are usually at the beginning of the file.
+
+Next you have to create a Scanner:
+    -> Scanner in = new Scanner(System.in);
+- This line declares a Scanner variable named in and creates a new Scanner that takes inout from System.in.
+- Scanner provides a method called nextline that reads a line input from the keyboard and returns a String. The following 
+example reads 2 lines and repeats them back to the user:
+ 
+                import java.util.Scanner;
+
+                public class Input_and_output_5 {
+    
+                     public static void main(String[] args){
+        
+                       String line;
+                       Scanner in = new Scanner(System.in);
+                       System.out.println("Type something: ");
+                       line = in.nextLine();
+                       System.out.println("you said: " + line);
+                       System.out.println("Type something else: ");
+                       line = in.nextLine();
+                       System.out.println("You also said: " + line);
+        
+                    }
+                }
+
+If you omit the import statement and later refer to Scanner, you will get a compiler error like "cannot find symbol". This 
+means the compiler doesn't know what you mean by scanner.
+Now, you might be wondering why we can use system class without importing it. System belongs to java.lang package, which is 
+imported automatically. java.lang "provides classes that are fundamental to the design of the java programming language." The
+String class is also part of the java.lang package.
+--------------------------------------------------------------------------------------------------------------------------------------
+PROGRAM STRUCTURE - 
+Elements of java language, from largest to smallest :-
+        Package    -------------> java.util
+        Class      -------------> Scanner
+        Method     -------------> nextline
+        Statement  -------------> line = in.nextline();
+        Expression -------------> hour * 60
+        Token      -------------> hour
+
+        (PCM - SET) for remembering.
+
+overview- 
+    A package is a collecton of classes, which define methods. Method contain statements, some of which contain expressions. 
+    Expressions are made up of tokens, which are the basic elements of a program, including numbers, variable names, operators,
+    keywords, and punctuation like parenthesis, braces and semicolons. 
+--------------------------------------------------------------------------------------------------------------------------------------
+LITERALS AND CONSTANTS - 
+The value that appears in the miscellenous program, like 2.54 is called literal. In general, there's nothing wrong with 
+literals. But when numbers like 2.54 appear in an expression with no explainantion, they make code hard to read. And if the 
+same value appears many times, and might have to change in the future, it makes the code hard to maintain.
+Value like these are called magic numbers (with the implication being magic isn't a good thing). A good practice is to assign 
+magic numbers to variables with meaningful names. 
+This version is easier to read and less error prone, but it still has a problem. Variables can vary, but the converter doesn't.
+Once we assign a value to converter, it should never change. It can be done by using keyword final.
+Declaring that a variable is final means that it can't ne updated once it has been initialized. If you try comiler shows an 
+error. Variables declared as final are called constants. By convention names for constants are all uppercase, with the 
+underscore between words.
+----------------------------------------------------------------------------------------------------------------------------------------
+FORMATIING OUTPUTS- 
+When you output a double using print or println, it displays up to 16 decimal places. That might be more than you  want. 
+System.out provides another method, called printf, that gives you more control of the format. The "f" in printf stands for 
+"formatted".
+             eg:  --> System.out.printf("Four thirds = %.3f", 4.0/3.0);    // output -> Four thirds = 1.333
+    The first value in the parentheses is a format string that specifies how the output should be displayed. This format 
+string contains ordinary texts followed by a format specifier, which is a special sequence that starts with a percentage sign.
+The format specifier %3.f indicates that the following value should be displayed aas a floating-point, rounded to 3 decimal 
+places. 
+The format string can contain any 2 number of format specifiers; eg:
+        System.out.printf("Four thirds = %.3f \n", 4.0/3.0); 
+        System.out.printf("%d in = %f cm \n", inch, cm);     // output -> 100 in = 254.000000 cm 
+    Like print, printf doen't append a newline. So, format strings often end with a newline character.
+
+The format specifier %d displays integer values("d" stands for decimal). For more details refer to documentation of 
+java.util.formatter.
+------------------------------------------------------------------------------------------------------------------------------------
+TYPE CASTING - 
+The simplest way to convert a floating point value to an integer is to use a type cast, so called beccause it molds "casts" a 
+value from one type to another. The syntax for type casting is to put the name og the type in parentheses and use it as an 
+operartor. 
+eg : 
+        double pi = 3.14159;
+        int x = (int) pi;
+        System.out.println(x);
+The (int) operator has the effect of converting what follows into an integer. In this eg: x gets the value 3. In other words 
+it simply throws away the fractional part.
+Type casting takes precedence over airthmetic operations. eg:
+        double pi = 3.14159;
+        double k = (int) pi * 20; 
+        System.out.println(k)  // output -> 60.0
+    In this example, the value of pi gets converted to an integer before the multiplication. So the shown output.
+----------------------------------------------------------------------------------------------------------------------------------------
+THE SCANNER BUG -
+When you read an int followed by a string, something strange happens. To understand what is happening, you have to understand 
+that the scanner doesn't see input as multiple lines, instead it gets a "stream of characters". When you call nextInt,  it 
+reads characters until it gets to a non- digit. At this point nextInt returns 22(age). The program then displays the prompt 
+"Enter your name: " and calls next line, which reads characters until it gets a newline. But since the next character is 
+already a newline, nextLine returns an emooty string "".
+To solve this problem, you need an extra nextLine after nextInt.
+            System.out.print("Enter your age: ");
+            age = in.nextInt();
+            in.nextline(); // read a newline 
+            System.out.print("Enter your name: ");
+            name = in.nextLine();
+            System.out.print("Your name is : " + name + ", and your age is : " + age);
+    This technique is common when reading int or double values that appear on their own line. 1st you raed the number then you
+read the next of the line, which is just a newline character.
+
+
