@@ -1,0 +1,73 @@
+PART-2-VARIABLES:
+
+A variable is named location that stores a value. Values maybe numbers, texts, images, sounds, and other type of
+data. To store a vaalue, you first have to declare a variable.
+eg: ------->  String message;
+This statement is declaration, because it declares that the variable named message has type String. Each variable 
+has a type that determines what kind of values it can store. for eg: int type and char type can store integers 
+and characters respectively. Some type begin with a capital letter and some with lowercase.
+ for eg : String firstName;
+          String lastName;
+          int hour, min;
+    This example declares 2 variables of type string and 2 of type int. When a variable name contains more than 
+one word its conventional to capitalize first letter of each word excpet the first word (camel case). Variable
+names are case sensitive. The above example demonstrates the syntax of declaring multiple variables.
+------------------------------------------------------------------------------------------------------------------
+You can use any name you want for a variable. But there are about 50 reserved words, called keywords, which are 
+used by the compiler to analyze the structure of the program.
+
+------------------------------------------------------------------------------------------------------------------
+ASSIGNMENT-
+Now that we have declared variables, we want to use them to store value. We do that with assignment statement.
+Eg:  --------> message ="Hello";
+               hour=11;
+               minutes=59;
+When you decclare a variable, you create a stroage location.
+When you make an assigmnment to a variable, you update its value.
+A common source for confusion is that some strings look like integers, but they are not. For Eg: message can 
+contain the string "123", which is made up of characters '1','2' and '3'. ut that isn't same as integer 123.
+Variable must be initialized(assigned for the first time) before they can be used. You can declare a variable and
+then assign the value later as in previous example. You can also declare and initialize on the same line:
+Eg:   -------------> String message="Hello";
+                     int hour = 11;
+                     int min = 59;
+-------------------------------------------------------------------------------------------------------------------
+STATE DIAGRAMS-
+The = symbol for assignment, is tempting to intrepret the statement a=b as a statement of equality. Its not!!
+Equality is commutative but assignment is not. In Java a=7; is a legal  assignment statement but 7 = a; isn't. 
+The left side of assignment statement has to be a variable name(storage location).
+Also in maths, a statement of equality is true all the time. In Java, an assignment statement can make 2 
+variables equal but they don't have to stay that way.
+eg: int a=5;  
+    int b=a; // a and b are now equal.
+    a=3; // a and b are now no longer equal.
+Tken togeather, the variables in a program and their current value make's up program state. The diagrams that 
+show the state of the program after these assignments statements runs are called state diagrams. Each variable is
+represented via a box showing the name of the varaible on the outside and value on the inside. As the program 
+runs, the state of the program changes so oyu should think of a state as a snapshot of a particular point in time.
+--------------------------------------------------------------------------------------------------------------------
+PRINTING VARIABLES-
+You can display the value of variable using print or println. 
+eg:     String firstLine = "Hello agian!";
+        system.out.println(firstLine);
+When we talk about displaying a variables, we generally mean the value of the variable. To display the name of 
+variable, you have to put it in quotes.
+Conveniently, the syntax for displaying a variable is the same regardless of its type.
+
+To output multiple values on the same line, its common to use several print statements followed by println at the
+end. But don't forget the println! On many computers, the output from print is stored without being displayed 
+until println is run; then the entire line is displayed at once. If you omit the println, the program might 
+display the stored output at unexpected times or even terminate without displaying anything. 
+-------------------------------------------@-------------@-------------@-------------------------------------------
+
+
+    
+A variable is a reuasble contained for value. A variable behave as if it was the value it contains. 
+ types of variables-
+ i) Primitive- simple values stored directly in memory(stack). Eg: int, char, double, boolean
+ ii)Reference-  memory address (stack) that point to the (heap). Eg: string, array, object 
+ Both are types of data types so on basis of this type of variables can be determined by these data types.
+
+ 2 steps to creating a variable-
+ 1) declaration. 
+ 2) assignment.
