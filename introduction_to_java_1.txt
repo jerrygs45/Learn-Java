@@ -1,0 +1,72 @@
+Java is called a high level programming language. It is so because programs in high level language is have to be 
+translated into a low level language, also called "machine language".This translation takes some time, which is a
+small dis-advantege of high level languages.
+
+High level languages have 2 advantages -
+1)It is much easier to program in high level languages. Programs takes less time to write, they are shorter and 
+  easier to read, and they are more likely to be correct.
+2)High-level languages are poratable, meaning they can run on different kinds of computers with few or no 
+  modifications. Low level programs can only run on one kind of computer, and have to be re-written to run on 
+  another. eg:- assembly language(specific to CPU architecture) and machine code(Binary instructions that work on
+  only one type of processor) are low level languages and java,c++,python etc are high level languages.
+
+2 kinds of programs translate high level languages: interpreters and compilers.
+An interpreter reads a high-level program and executes it, meaning that it does waht a program says.It processes 
+the program a little at a time, alternately reading lines and performing computations.
+    source code-------> Interpreter ---------> output
+In contrast, a compiler reads the entire program and translate it completely before the program starts runing. In
+this context, the high-level program is called the source code, and the translated program is called the object
+code or executable. Once a program is compiled, you can  execute it repeatedly without furthur translation. As a
+result, compiled programs often run faster than interpreted programs.
+
+Java is both compiled and interpreted. Instead of translating programs direcctly into machine language, the java 
+compiler generates byte code. Similar to machine language, byte code is easy and fast interpret(8 bit program).
+But its also portable, so its possible to compile a Java program on one machine, transfer the byte code to
+another machine, and run the byte code on the other machine. The interpreter that runs byte code is called Java
+virtual machine (JVM).
+    source code(Hello.java)----->compiler(javac Hello.java)---->Byte code(Hello.class)--->interpreter(java Hello)
+    ---->output 
+
+[See program demo.java] ---
+
+Java programs are made up of class and definitions, and the methods are made up of statements. A statement is a
+line of code that performs a operation. In the hello world program, this line is a print statement displays a 
+message on the screen   ---->            System.out.println("Hello World!"); *(Write sout to get this code).
+System.out.println displays result on screen. The name println stands for "print line".Confusingly, print can 
+mean both "display on screen" and "send to printer".  
+
+In Java, System.out.print() prints text without moving to a new line. This means the next output will continue 
+on the same line. In contrast, System.out.println() moves to a new line after printing.
+Java is case sensitive for eg:system must be written like System.
+
+A method is a named sequence of statements.This program defines one method named main:
+  ----------------------> public static void main(Strings args[])
+The name and format of main is special: when the program runs, it starts at first statement in main and ends when
+it finishes the last statement .
+
+A class is a collection of methods. This program defines a class nemed demo. You can give a class any name you 
+like, but its conventional to start with a capital letters. The name of class has to match the name of the file 
+its in, so this class has to be in a file named demo.java.
+
+Java uses squiggy braces ({}) to group thing togeather. In demo.java the outermost braces contains the file 
+definition, and the inner braces contains the method definition.
+
+-----------------------------------------------------------------------------------------------------------------
+DISPLAYING STRINGS-
+Phases that appear inside the quotation marks are called strings, because they contain a sequence of "characters"
+strung togeather. Characters can be letters, numbers, punctuation marks, symbols, spaces, tabs, etc.
+System.out.println appends a special character, called a newline, that moves to the beginning of the next line. 
+If you don't want a newline at the end, you can use print instead of println.
+-----------------------------------------------------------------------------------------------------------------
+ESCAPE SEQUENCES-
+The n\ is an escape sequence, which is a sequence of character. The backslash allows you to "escape" the strings 
+literal interpretation.
+Another common use of escape sequence is to have a quotation mark inside of strings. Since double quotes indicate 
+the beginning and end of strings, you need to escape them with a backslash.
+-------------------> System.out.println("She said\"hello!\"to me.");
+some of the common escape sequences are-
+1)newline- n\
+2)tab- \t
+3)double quotes- \"
+4)backslash- \\
+-------------------------------------------------------------------------------------------------------------------
